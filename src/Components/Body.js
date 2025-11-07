@@ -1,9 +1,9 @@
 // Body.js
 import React from 'react';
 import '../styles/Body.css';
-import monLogo from '../images/monLogo.jpeg'
+import monLogo from '../images/monLogo.jpeg';
 
-const Body = () => {
+const Body = ({ onWatchVideo }) => {
   return (
     <div className="body-container">
       {/* Section Hero */}
@@ -20,7 +20,9 @@ const Body = () => {
             </div>
             <div className="hero-buttons">
               <button className="btn-primary">Get Started</button>
-              <button className="btn-secondary">Watching Video</button>
+              <button className="btn-secondary" onClick={onWatchVideo}>
+                Watching Video
+              </button>
             </div>
           </div>
           
