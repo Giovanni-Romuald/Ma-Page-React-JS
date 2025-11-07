@@ -1,0 +1,574 @@
+/* Body.css */
+.body-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #001933 50%, #000000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de particules bleues en arrière-plan */
+.body-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 123, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 86, 179, 0.1) 0%, transparent 50%);
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.hero-section {
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Partie texte */
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.text-animation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Effet flammes bleues sur le texte */
+.flaming-text {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #007bff 0%, #00bfff 25%, #ffffff 50%, #00bfff 75%, #007bff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: flamingText 3s linear infinite, textGlow 2s ease-in-out infinite alternate;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.flaming-text-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00bfff 0%, #007bff 50%, #00bfff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: flamingText 4s linear infinite;
+  margin: 0;
+}
+
+@keyframes flamingText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes textGlow {
+  0% { filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.5)); }
+  100% { filter: drop-shadow(0 0 20px rgba(0, 123, 255, 0.8)) 
+                   drop-shadow(0 0 30px rgba(0, 191, 255, 0.6)); }
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Boutons */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.5);
+  border-color: transparent;
+}
+
+/* Partie image */
+.hero-image-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: visible;
+  box-shadow: 0 20px 50px rgba(0, 123, 255, 0.3);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
+}
+
+/* Cadre avec flammes bleues */
+.flaming-frame {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #007bff, #00bfff, #007bff, #00bfff);
+  background-size: 400% 400%;
+  border-radius: 24px;
+  animation: frameFlames 3s ease infinite;
+  z-index: 0;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+.blue-flames-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(0, 123, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0, 191, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 86, 179, 0.2) 0%, transparent 70%);
+  animation: flamesMove 4s ease-in-out infinite alternate;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* Système d'électrons en orbite */
+.electron {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00bfff 0%, #007bff 50%, transparent 70%);
+  box-shadow: 
+    0 0 15px #007bff,
+    0 0 30px #00bfff,
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 3;
+  pointer-events: none;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Tailles et positions des électrons */
+.electron-1 {
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  animation: orbit1 4s linear infinite, electronPulse 2s ease-in-out infinite;
+}
+
+.electron-2 {
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  animation: orbit2 5s linear infinite, electronPulse 2.5s ease-in-out infinite;
+}
+
+.electron-3 {
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  animation: orbit3 6s linear infinite, electronPulse 3s ease-in-out infinite;
+}
+
+.electron-4 {
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  animation: orbit4 3.5s linear infinite, electronPulse 1.5s ease-in-out infinite;
+}
+
+.electron-5 {
+  width: 9px;
+  height: 9px;
+  top: 50%;
+  left: 50%;
+  animation: orbit5 4.5s linear infinite, electronPulse 2.2s ease-in-out infinite;
+}
+
+.electron-6 {
+  width: 11px;
+  height: 11px;
+  top: 50%;
+  left: 50%;
+  animation: orbit6 5.5s linear infinite, electronPulse 2.8s ease-in-out infinite;
+}
+
+.electron-7 {
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  left: 50%;
+  animation: orbit7 6.5s linear infinite, electronPulse 3.2s ease-in-out infinite;
+}
+
+.electron-8 {
+  width: 13px;
+  height: 13px;
+  top: 50%;
+  left: 50%;
+  animation: orbit8 3s linear infinite, electronPulse 1.8s ease-in-out infinite;
+}
+
+/* Animations d'orbite pour chaque électron */
+@keyframes orbit1 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(0deg) 
+      translateX(180px) 
+      rotate(0deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(360deg) 
+      translateX(180px) 
+      rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(45deg) 
+      translateX(220px) 
+      rotate(-45deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(405deg) 
+      translateX(220px) 
+      rotate(-405deg);
+  }
+}
+
+@keyframes orbit3 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(90deg) 
+      translateX(160px) 
+      rotate(-90deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(450deg) 
+      translateX(160px) 
+      rotate(-450deg);
+  }
+}
+
+@keyframes orbit4 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(135deg) 
+      translateX(200px) 
+      rotate(-135deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(495deg) 
+      translateX(200px) 
+      rotate(-495deg);
+  }
+}
+
+@keyframes orbit5 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(180deg) 
+      translateX(140px) 
+      rotate(-180deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(540deg) 
+      translateX(140px) 
+      rotate(-540deg);
+  }
+}
+
+@keyframes orbit6 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(225deg) 
+      translateX(240px) 
+      rotate(-225deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(585deg) 
+      translateX(240px) 
+      rotate(-585deg);
+  }
+}
+
+@keyframes orbit7 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(270deg) 
+      translateX(190px) 
+      rotate(-270deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(630deg) 
+      translateX(190px) 
+      rotate(-630deg);
+  }
+}
+
+@keyframes orbit8 {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(315deg) 
+      translateX(170px) 
+      rotate(-315deg);
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(675deg) 
+      translateX(170px) 
+      rotate(-675deg);
+  }
+}
+
+/* Pulsation des électrons */
+@keyframes electronPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+    box-shadow: 
+      0 0 15px #007bff,
+      0 0 30px #00bfff;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+    box-shadow: 
+      0 0 25px #007bff,
+      0 0 45px #00bfff,
+      0 0 60px #00bfff;
+  }
+}
+
+/* Traînées lumineuses pour certains électrons */
+.electron-1::after,
+.electron-4::after,
+.electron-8::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: trailPulse 2s ease-in-out infinite;
+}
+
+@keyframes trailPulse {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes frameFlames {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes flamesMove {
+  0% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% { 
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .flaming-text {
+    font-size: 2.8rem;
+  }
+  
+  .flaming-text-subtitle {
+    font-size: 1.6rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Ajustement des orbites sur mobile */
+  @keyframes orbit1 {
+    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(120px) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+  
+  /* Répéter pour les autres orbites avec des distances réduites */
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .flaming-text {
+    font-size: 2.2rem;
+  }
+  
+  .flaming-text-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text-content, .hero-image-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-image-content {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}

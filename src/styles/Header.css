@@ -1,0 +1,238 @@
+.enTete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #000000;
+    box-shadow: 0 2px 15px rgba(0, 123, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de brillance subtile sur l'en-tête */
+.enTete::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.enTete:hover::before {
+    left: 100%;
+}
+
+/* Animation de rotation améliorée pour le logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.rotating-logo {
+    width: 90px;
+    height: 90px;
+    animation: rotate 12s linear infinite;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.3));
+}
+
+.rotating-logo:hover {
+    animation-play-state: paused;
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(0, 123, 255, 0.6));
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.element-enTete {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.element-enTete li {
+    position: relative;
+}
+
+.element-enTete li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de soulignement animé */
+.element-enTete li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff, #00bfff);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+}
+
+.element-enTete li a:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.element-enTete li a:hover::before {
+    width: 80%;
+}
+
+/* Effet de pulsation sur l'élément actif */
+.element-enTete li a:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-signup, .btn-login {
+    padding: 0.6rem 1.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-signup {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-signup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-signup:hover::before {
+    left: 100%;
+}
+
+.btn-signup:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.btn-login:hover {
+    background: linear-gradient(135deg, #007bff, #00bfff);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+    border-color: transparent;
+}
+
+/* Animation de rebond au clic */
+.btn-signup:active, .btn-login:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+/* Responsive amélioré */
+@media (max-width: 768px) {
+    .enTete {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+    }
+    
+    .element-enTete {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .auth-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .btn-signup, .btn-login {
+        flex: 1;
+        max-width: 150px;
+        text-align: center;
+    }
+    
+    .rotating-logo {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Animation d'entrée pour les éléments */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.element-enTete li, .auth-buttons {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Retard d'animation pour chaque élément de navigation */
+.element-enTete li:nth-child(1) { animation-delay: 0.1s; }
+.element-enTete li:nth-child(2) { animation-delay: 0.2s; }
+.element-enTete li:nth-child(3) { animation-delay: 0.3s; }
+.element-enTete li:nth-child(4) { animation-delay: 0.4s; }
+.auth-buttons { animation-delay: 0.5s; }
